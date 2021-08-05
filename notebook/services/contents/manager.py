@@ -421,6 +421,7 @@ class ContentsManager(LoggingConfigurable):
                 model['format'] = 'text'
         
         model = self.save(model, path)
+        os.chown(path, 1000, 100)
         return model
 
     def copy(self, from_path, to_path=None):
